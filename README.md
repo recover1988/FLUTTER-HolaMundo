@@ -78,3 +78,65 @@ Usar principios de arqutectura limpia para poder mantener y ampliar la aplicacio
 - presentation: cualquier cosas que sea widgets personalizados.
 - screens: un widget que cubre toda la pantalla y estas llevan sus propios `Scaffold`.
 
+## Crear Screen
+
+Podemos crear un widget de tipo screen y importarlo en la funcion main para que se renderize.
+
+```
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: CounterScreen() // CounterScreem
+        );
+  }
+}
+```
+
+## Widgets
+
+```
+import 'package:flutter/material.dart';
+
+class CounterScreen extends StatelessWidget {
+  const CounterScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              '10',
+              style: TextStyle(fontSize: 160, fontWeight: FontWeight.w100),
+            ),
+            Text(
+              'cantidad de clicks',
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.plus_one),
+      ),
+    );
+  }
+}
+```
+
+Los widgtes tipo `Text` aceptan ademas del `String`, otra propiedad llamada `style` deonde podemos usar la clase `TextStyle` la cual tiene diferentes metodos para manejar las propiedades de los textos, como el tamaño, grosor, etc.
+
+El widget `Scaffold` tiene diferentes widgets que significan una posicion en la pantalla como el `body`, que a su vez puede aceptar widgets.
+
+- Column y Row son widgets que modifican la posicion de los widgets, como el flex en css de column y row. Y se puede alinear con el `mainAxisAlignment` que acepta una clase de tipo `MainAxisAlignment` que funciona como un enum con diferentes propiedades que se pueden aplicar como el center, etc.
+
+- El `Scaffold`tambien acepta un `floatingActionButton` que a su vez tiene una clase ` FloatingActionButton``, que no es mas que un boton el cual tiene su metodo  `onPressed`que requiere una funcion y un`child` que requiere un Icon para mostrar.
