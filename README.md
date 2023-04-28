@@ -140,3 +140,18 @@ El widget `Scaffold` tiene diferentes widgets que significan una posicion en la 
 - Column y Row son widgets que modifican la posicion de los widgets, como el flex en css de column y row. Y se puede alinear con el `mainAxisAlignment` que acepta una clase de tipo `MainAxisAlignment` que funciona como un enum con diferentes propiedades que se pueden aplicar como el center, etc.
 
 - El `Scaffold`tambien acepta un `floatingActionButton` que a su vez tiene una clase ` FloatingActionButton``, que no es mas que un boton el cual tiene su metodo  `onPressed`que requiere una funcion y un`child` que requiere un Icon para mostrar.
+
+## Material Design 3
+
+Para usarlo tenemos que ir a la propiedad `theme` del `MaterialApp`
+
+```
+theme:
+     ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: Colors.deepPurple
+    ),
+```
+
+Al usar el `colorSchemeSeed` se nos genera una paleta de colores alrededor del color que elegimos.
+Podemos usar colores llamando al constructor `Color` y entre sus metodos elegir alguna forma para pasar color com ARGB u otros. o podemos ir a `Colors` y elegir entre los colores predefinidos que tiene flutter.
