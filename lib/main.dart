@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme:
-            ThemeData(useMaterial3: true, colorSchemeSeed: Colors.deepPurple),
+            ThemeData(useMaterial3: true, colorSchemeSeed: Colors.lime),
         home: const CounterScreen() // CounterScreem
         );
   }

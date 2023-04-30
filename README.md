@@ -155,3 +155,23 @@ theme:
 
 Al usar el `colorSchemeSeed` se nos genera una paleta de colores alrededor del color que elegimos.
 Podemos usar colores llamando al constructor `Color` y entre sus metodos elegir alguna forma para pasar color com ARGB u otros. o podemos ir a `Colors` y elegir entre los colores predefinidos que tiene flutter.
+
+## Cambiar el estado de la Aplicacion
+
+Para cambiar de StatelessWidget a StatefulWidget apretamos el comando `Ctrl + .` sobre la extension, se recomienda no tener muchas widgets con estados.
+
+```
+class CounterScreen extends StatefulWidget {
+  const CounterScreen({super.key});
+
+  @override
+  State<CounterScreen> createState() => _CounterScreenState();
+}
+
+class _CounterScreenState extends State<CounterScreen> {
+..............
+..............
+..............
+..............
+}
+```
