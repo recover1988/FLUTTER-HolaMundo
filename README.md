@@ -224,3 +224,69 @@ El floatingActionButton espera un widget en este caso le ponemos un column para 
             child: const Icon(Icons.exposure_minus_1_outlined),
           ),
 ```
+
+## Widget Personalizado
+
+Podemos hacer extraer el widget presionando `Ctrl + .` y eligiendo la opcion.
+Tenemos que especificar el tipo que recibe la clase.
+
+```
+class CustomButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onPressed;
+
+  const CustomButton({
+    super.key,
+    required this.icon,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      shape: const StadiumBorder(),
+      onPressed: onPressed,
+      child: Icon(icon),
+    );
+  }
+}
+
+```
+
+Y asi podemos usar esta nueva widget pasandole las prop que necesitamos.
+
+```
+ floatingActionButton:
+            Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+          CustomButton(
+            icon: Icons.refresh_rounded,
+            onPressed: () {
+              clickCounter = 0;
+              setState(() {});
+            },
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          CustomButton(
+            icon: Icons.exposure_minus_1_outlined,
+            onPressed: () {
+              if (clickCounter == 0) return;
+              clickCounter--;
+              setState(() {});
+            },
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          CustomButton(
+            icon: Icons.plus_one_outlined,
+            onPressed: () {
+              clickCounter++;
+              setState(() {});
+            },
+          ),
+        ]));
+```
+
+El `SizedBox` es un widget que seria una caja vacia con el tamaño que necesitemos para espaciar otros widgets.
