@@ -175,3 +175,52 @@ class _CounterScreenState extends State<CounterScreen> {
 ..............
 }
 ```
+
+# F2 sobre la palabra para renombrar todas
+
+## AppBar y Acciones
+
+La AppBar puede tener un leading o actions que esperan un widget que puede ser los columns o rows y asi poder usar otroa widgets dentro como botones.
+
+```
+ appBar: AppBar(
+          title: const Text('Counter Functions'),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.refresh_rounded),
+              onPressed: () {
+                setState(() {
+                  clickCounter = 0;
+                });
+              },
+            ),
+          ],
+          centerTitle: true,
+        ),
+```
+
+El floatingActionButton espera un widget en este caso le ponemos un column para poder tener mas botones.
+
+```
+        floatingActionButton:
+            Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+          FloatingActionButton(
+            shape: const StadiumBorder(),
+            onPressed: () {
+              clickCounter += 1;
+              setState(() {});
+            },
+            child: const Icon(Icons.plus_one),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          FloatingActionButton(
+            shape: const StadiumBorder(),
+            onPressed: () {
+              clickCounter -= 1;
+              setState(() {});
+            },
+            child: const Icon(Icons.exposure_minus_1_outlined),
+          ),
+```
